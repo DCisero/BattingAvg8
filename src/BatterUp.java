@@ -3,22 +3,19 @@
  */
 
 import java.util.Scanner;
-import java.text.DecimalFormat; //decimal format
 
 public class BatterUp {
     public static void main(String[] arg) {
         Scanner scan = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(3);
 
         String answer = "Y";
 
     do {
         int userInput = 0;
-        double hits = 0.0;
-        double avgBat = 0.0;
-        double bases = 0.0;
-        double avgSlug;
+        int hits = 0;
+        double avgBat;
+        int bases = 0;
+        double avgSlug = 0;
 
 
             System.out.println("Welcome to Batting Average Calculator!");
@@ -52,11 +49,13 @@ public class BatterUp {
                 }
             }
             avgBat = hits / userInput;
-            System.out.println("Player batting average: " + (df.format(avgBat)));
+            String avg = String.format("%.3f",avgBat);
+            System.out.println("Player batting average: " + avg);
 
             //calculate the slugging average- display 3 dec.
             avgSlug = bases/userInput;
-            System.out.println("Player slugging percentage: " + (df.format(avgSlug)));
+            String slug = String.format("%.3f", avgSlug);
+            System.out.println("Player slugging percentage: " + slug);
             System.out.println();
 
             System.out.println("Another batter? (y/n): ");
